@@ -17,12 +17,12 @@ powershell -ExecutionPolicy Bypass .\RemoveWindowsEmbeddedApps.ps1
 Update app in windows store and install `App Installer`. Install essential application
 
 ```powershell
-powershell -ExecutionPolicy Bypass ./InstallEssentialApps.ps1
+powershell -ExecutionPolicy Bypass .\InstallEssentialApps.ps1
 ```
 
 Install group apps
 
 ```powershell
-powershell -ExecutionPolicy Bypass ./Install_RE_Apps.ps1
-powershell -ExecutionPolicy Bypass ./Install_DFIR_Apps.ps1
+powershell -ExecutionPolicy Bypass .\Install_RE_Apps.ps1
+powershell -ExecutionPolicy Bypass .\Install_DFIR_Apps.ps1
 ```

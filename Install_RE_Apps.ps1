@@ -3,6 +3,9 @@ Import-Module -Name .\SwodniwUtils.psm1
 winget install --id=Hex-Rays.IDA.Free --scope=machine -e
 winget install --id=MHNexus.HxD --scope=machine -e
 
+winget install --id=dnSpyEx.dnSpy --scope=machine -e
+winget install --id=Microsoft.DotNet.DesktopRuntime.6 --scope=machine -e
+
 $pythonVersion = $(Get-Command python -ErrorAction SilentlyContinue | Select-Object Version).version.ToString()
 
 if ($pythonVersion -eq "0.0.0.0") {
