@@ -3,9 +3,20 @@ Import-Module -Name .\SwodniwUtils.psm1
 winget install --id=Hex-Rays.IDA.Free --scope=machine -e
 winget install --id=MHNexus.HxD --scope=machine -e
 
+# C/C++ debugger
+Download-GithubReleaseLatest -Repo "x64dbg/x64dbg" -OuputFile "x64dbg.zip" -SampleFileName "snapshot_*.zip"
+#### git IDA plugins
+# git clone https://github.com/bootleg/ret-sync
+# git clone https://github.com/danigargu/deREferencing
+
+# C#
 winget install --id=dnSpyEx.dnSpy --scope=machine -e
 winget install --id=Microsoft.DotNet.DesktopRuntime.6 --scope=machine -e
 
+# Android java/kotlin
+Download-GithubReleaseLatest -Repo "skylot/jadx" -OuputFile "jadx.zip" -SampleFileName "jadx*-with-jre-win.zip"
+
+# Python
 $pythonVersion = $(Get-Command python -ErrorAction SilentlyContinue | Select-Object Version).version.ToString()
 
 if ($pythonVersion -eq "0.0.0.0") {
