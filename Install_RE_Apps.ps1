@@ -3,8 +3,12 @@ Import-Module -Name .\SwodniwUtils.psm1
 winget install --id=Hex-Rays.IDA.Free --scope=machine -e
 winget install --id=MHNexus.HxD --scope=machine -e
 
+# Another tools
+Download-UsingWebC -Url https://www.nirsoft.net/utils/hashmyfiles-x64.zip
+
 # C/C++ debugger
 Download-GithubReleaseLatest -Repo "x64dbg/x64dbg" -OuputFile "x64dbg.zip" -SampleFileName "snapshot_*.zip"
+# WinDBG
 #### git IDA plugins
 # git clone https://github.com/bootleg/ret-sync
 # git clone https://github.com/danigargu/deREferencing
