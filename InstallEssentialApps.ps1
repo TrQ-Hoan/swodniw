@@ -4,6 +4,7 @@ winget install --id=RARLab.WinRAR --scope=machine -e
 winget install --id=voidtools.Everything --scope=machine -e
 winget install --id=Notepad++.Notepad++ --scope=machine -e
 winget install --id=Git.Git --scope=machine -e
+winget install --id=gerardog.gsudo --scope=machine -e
 
 winget install --id=Microsoft.Sysinternals.ProcessExplorer --scope=machine -e
 winget install --id=Microsoft.Sysinternals.Autoruns --scope=machine -e
