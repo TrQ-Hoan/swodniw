@@ -1,10 +1,14 @@
+Param (
+    [switch]$all = $false
+)
+
 $systemDrive = Join-Path -Path $env:SYSTEMDRIVE -ChildPath '\'
 
 # Define the parent directory path
 $parentPath = $systemDrive + "Program Files\WindowsApps"
 
 # Array app remove
-$listApps = @("Microsoft.549981C3F5F10", "Microsoft.Advertising.Xaml", "Microsoft.BingWeather", "Microsoft.Microsoft3DViewer", "Microsoft.MicrosoftOfficeHub", "Microsoft.MicrosoftSolitaireCollection", "Microsoft.MixedReality.Portal", "Microsoft.Office.OneNote", "Microsoft.People", "Microsoft.SkypeApp", "Microsoft.WindowsMaps", "Microsoft.Xbox.TCUI", "Microsoft.XboxApp", "Microsoft.XboxIdentityProvider", "Microsoft.XboxSpeechToTextOverlay", "Microsoft.XboxGamingOverlay")
+$listApps = @("Microsoft.549981C3F5F10", "Microsoft.Advertising.Xaml", "Microsoft.BingWeather", "Microsoft.Microsoft3DViewer", "Microsoft.MicrosoftOfficeHub", "Microsoft.MicrosoftSolitaireCollection", "Microsoft.MixedReality.Portal", "Microsoft.Office.OneNote", "Microsoft.People", "Microsoft.SkypeApp", "Microsoft.WindowsMaps", "Microsoft.Xbox.TCUI", "Microsoft.XboxApp", "Microsoft.XboxIdentityProvider", "Microsoft.XboxSpeechToTextOverlay", "Microsoft.XboxGamingOverlay", "Microsoft.XboxGameOverlay")
 
 $listAppsOptional = @("Microsoft.YourPhone", "Microsoft.WindowsCamera")
 
@@ -34,6 +38,8 @@ function Remove-Windows-Apps {
 }
 
 Remove-Windows-Apps -listAppsRemoval $listApps
-# Remove-Windows-Apps -listAppsRemoval $listAppsOptional
+if ($all) {
+	Remove-Windows-Apps -listAppsRemoval $listAppsOptional
+}
 & cmd /c rmdir /q /s "$parentPath\DeletedAllUserPackages"
 & cmd /c rmdir /q /s "$parentPath\Deleted"

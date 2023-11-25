@@ -1,4 +1,4 @@
-function Download-UsingWebC {
+function Invoke-WebDownload {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true)][string]$Url,
@@ -122,23 +122,23 @@ function Download-UsingWebC {
     }
 }
 
-function Download-GithubReleaseLatest {
-	[CmdletBinding()]
+function Invoke-GithubReleaseDownload {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true)][string]$Repo,
-		[string]$SampleFileName,
+        [string]$SampleFileName,
         [string]$OuputFile
     )
 	
-	Write-Host [+] Download latest release from $Repo
+    Write-Host [+] Download latest release from $Repo
 
-	$latestInfoJson = Invoke-Webrequest -Uri "https://api.github.com/repos/$Repo/releases/latest" -UseBasicParsing
+    $latestInfoJson = Invoke-Webrequest -Uri "https://api.github.com/repos/$Repo/releases/latest" -UseBasicParsing
 
-	$release = $latestInfoJson.Content | ConvertFrom-Json
-	$release.assets | %{
-		if ($_.name -clike $SampleFileName){
-			Write-Host [!] Start downloading: $_.browser_download_url
-			Download-UsingWebC -Url $_.browser_download_url -Path $OuputFile
-		}
-	}
+    $release = $latestInfoJson.Content | ConvertFrom-Json
+    $release.assets | ForEach-Object {
+        if ($_.name -clike $SampleFileName) {
+            Write-Host [!] Start downloading: $_.browser_download_url
+            Invoke-WebDownload -Url $_.browser_download_url -Path $OuputFile
+        }
+    }
 }
