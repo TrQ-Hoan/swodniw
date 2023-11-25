@@ -24,8 +24,9 @@ Invoke-GithubReleaseDownload -Repo "skylot/jadx" -OuputFile "jadx.zip" -SampleFi
 $pythonVersion = $(Get-Command python -ErrorAction SilentlyContinue | Select-Object Version).version.ToString()
 
 if ($pythonVersion -eq "0.0.0.0") {
+    pyversion = "3.9.13"
     # Download python installer
-    Invoke-WebDownload -Url "https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe" -Path "python-installer.exe"
+    Invoke-WebDownload -Url "https://www.python.org/ftp/python/$pyversion/python-$pyversion-amd64.exe" -Path "python-installer.exe"
     # Install Python silently
     Start-Process -Wait -FilePath "python-installer.exe" -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1"
     # Check if the installation was successful
