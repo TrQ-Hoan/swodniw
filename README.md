@@ -59,3 +59,13 @@ Windows tweaks
 # maybe need add hosts file `127.0.0.1 chocolatey.org` beacause chocolatey.org is auto install
 powershell.exe -executionpolicy bypass "irm christitus.com/win | iex"
 ```
+
+---
+
+Hosts file
+
+```conf
+127.0.0.1 chocolatey.org
+#152.199.21.175 cdn.winget.microsoft.com
+152.199.39.108 cdn.winget.microsoft.com
+```

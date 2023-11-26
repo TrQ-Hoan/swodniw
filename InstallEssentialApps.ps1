@@ -1,7 +1,8 @@
 Import-Module -Name .\SwodniwUtils.psm1
 
-winget install --id=RARLab.WinRAR --scope=machine -e
-# winget install --id=7zip.7zip --scope=machine -e
+# winget install --id=RARLab.WinRAR --scope=machine -e
+winget install --id=Alex313031.Thorium --scope=machine -e
+winget install --id=7zip.7zip --scope=machine -e
 winget install --id=voidtools.Everything --scope=machine -e
 winget install --id=Notepad++.Notepad++ --scope=machine -e
 winget install --id=Git.Git --scope=machine -e
