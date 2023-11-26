@@ -19,7 +19,7 @@ function Remove-Windows-Apps {
 
 	foreach ($item in $listAppsRemoval) {
 		if ($(Get-AppxPackage $item -AllUsers).InstallLocation -like "$parentPath*" ) {
-   			Get-AppxPackage $item -AllUsers | Remove-AppxPackage -allusers
+   			Get-AppxPackage $item -AllUsers | Remove-AppxPackage
    			Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "$item*" | Remove-AppxProvisionedPackage -Online
 		}
 	}
